@@ -1,0 +1,64 @@
+#ticket-content {
+    font-family: Arial, sans-serif;
+
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .ticket-products {
+    width: 100%;
+    border-collapse: collapse; /* Combina los bordes de las celdas de la tabla */
+  }
+  
+  .product-row.header td {
+    font-weight: bold;
+    border-bottom: 1px solid black !important;
+    border-top: 1px solid black !important;
+  }
+  
+  .product-row td {
+    padding: 3px;
+    font-size:12px;
+
+    // border: 1px solid #ddd;
+  }
+
+  .title {
+    font-family: "Gwendolyn", cursive; /* Aplica la fuente Gwendolyn */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .product-row.total td {
+    font-weight: bold;
+    border-top: 1px solid black !important;
+    padding: 10px;
+  }
+  .text-right {
+    text-align: right;
+  }
+
+  .product-row.total .text-left {
+    padding-left: 25px;
+  }
+  
+  .product-row.total .text-right {
+    padding-right: 25px;
+  }
+
+  .container_nif p {
+    font-size:11px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gracias {
+    text-align: center;
+    font-size: 11px;
+   padding: 30px !important;
+  }
+  

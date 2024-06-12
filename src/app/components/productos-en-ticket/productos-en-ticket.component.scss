@@ -1,0 +1,21 @@
+
+.container_productos_ticket {
+    border-left: 1px solid black;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  
+.container_button {
+      align-self: center; // Asegura que el botón esté al final
+    margin-top: auto;  
+    
+    
+    }
+    ::ng-deep p-button {
+        width: 400px !important;
+      } 
+ 
+  

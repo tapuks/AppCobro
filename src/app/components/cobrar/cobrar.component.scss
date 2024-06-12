@@ -1,0 +1,23 @@
+
+ ::ng-deep .p-inputtext {
+        font-size: 35px !important;
+        width: 50%;
+    
+}
+
+::ng-deep  .label-large {
+        font-size: 20px;
+        /* Tamaño del texto */
+        padding-right: 10px;
+        /* Espacio adicional entre la etiqueta y el input */
+    }
+
+    ::ng-deep  .input-large {
+        font-size: 18px;
+        /* Tamaño del texto del input */
+        padding: 20px !important;
+        /* Tamaño del padding del input */
+        width: 50%;
+        /* Ajuste del ancho del input */
+    }
+

@@ -1,0 +1,30 @@
+<p-card [ngClass]="{'selected': producto.seleccionado}" [style]="{ width: '200px', height:'200px' }" (click)="dialogVisible=true">
+    <ng-template pTemplate="header">
+        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+        <p class="text-center">{{producto.nombre}}</p>
+
+        <p class="text-center">{{producto.precio}}€</p>
+
+    </ng-template>
+</p-card>
+
+
+<div class="card flex justify-content-center">
+    <p-dialog header="Cantidad de {{producto.nombre}}" [modal]="true" [(visible)]="dialogVisible"
+        [style]="{ width: '25rem' }" closable="false">
+        <div class="flex">
+
+            <p-inputNumber class="input_number" [(ngModel)]="cantidad" [showButtons]="true" buttonLayout="horizontal"
+                inputId="horizontal" spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-danger"
+                incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus" mode="decimal" currency="EUR" [min]="0" />
+            <p class="ml-5">{{producto.precio * cantidad}}€</p>
+        </div>
+        <div class="flex justify-content-between mt-5 pt-5">
+            <button pButton  label="Cancelar" class="p-button-danger" (click)="cancelar()"></button>
+            <button pButton  label="Confirmar" class="p-button-success" [disabled]="cantidad===0" (click)="confirmar()"></button>
+        </div>
+    </p-dialog>
+</div>
+
+<p-confirmDialog />

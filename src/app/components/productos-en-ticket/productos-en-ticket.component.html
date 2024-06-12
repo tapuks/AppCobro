@@ -1,0 +1,28 @@
+
+<div class="container_productos_ticket">
+
+    <ul>
+        <li *ngFor="let prod of productosEnTicket">{{prod.nombre}} __________x {{prod.cantidad}}</li>
+    </ul>
+    <div class="container_button">
+
+        <p-button class="button_ticket" (click)="dialogTicketVisible= true">Sacar ticket</p-button>
+        <p-button class="button_ticket" (click)="dialogCobrarVisible= true">Cobrar</p-button>
+    </div>
+
+    <div class="card flex justify-content-center">
+        <p-dialog  [modal]="true" [(visible)]="dialogTicketVisible"
+            [style]="{ width: '25rem' }" closable="true">
+            <app-ticket></app-ticket>
+        </p-dialog>
+    </div>
+    <div class="card flex justify-content-center">
+        <p-dialog  [modal]="true" [(visible)]="dialogCobrarVisible"
+            [style]="{ width: '25rem' }" closable="true">
+            <app-cobrar></app-cobrar>
+        </p-dialog>
+    </div>
+</div>
+
+
+

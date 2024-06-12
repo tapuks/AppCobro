@@ -1,0 +1,19 @@
+.app-container {
+    display: flex;
+    height: 90vh; // Asegura que ocupe toda la altura de la pantalla
+  }
+  
+  .productos {
+    flex: 0 0 300px; // Ajusta el ancho de la columna de productos según sea necesario
+    height: 100%; // Asegura que ocupe toda la altura del contenedor
+    border-right: 2px solid black; // Borde derecho para la separación
+    box-sizing: border-box; // Asegura que el borde esté incluido en el tamaño total
+    overflow-y: auto; // Permite el scroll si el contenido es más alto que la vista
+  }
+  
+  .contenido {
+    flex: 1; // Ocupa el resto del espacio disponible
+    height: 100%; // Asegura que ocupe toda la altura del contenedor
+    overflow-y: auto; // Permite el scroll si el contenido es más alto que la vista
+  }
+
