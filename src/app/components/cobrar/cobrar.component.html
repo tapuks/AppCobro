@@ -1,18 +1,19 @@
-<h2>Total a pagar {{totalEuros}}€</h2>
 
 <div class="container_cobro flex-auto">
-    <label class="mr-5 pr-5 label-large" for="integeronly">Me dan</label>
-    <p-inputNumber 
-      inputId="integeronly" 
-      [(ngModel)]="valueMeDan" 
-      (ngModelChange)="manejoMedan()"
-      [class.input-large]="true" />
+  <label class="mr-5 pr-5 label-large" for="integeronly">Me dan</label>
+  <p-inputNumber inputId="locale-user" 
+  [minFractionDigits]="2" 
+  [(ngModel)]="valueMeDan" 
+  (ngModelChange)="manejoMedan()"
+  [class.input-large]="true" />
   </div>
-  <div class="flex-auto">
-    <label class="mr-5 pr-5 label-large" for="integeronly">Devuelvo</label>
-    <p-inputNumber 
+<h2>Total a pagar {{twoDecimals(totalEuros)}}€</h2>
+  <div class="flex">
+    
+    <!-- <p-inputNumber 
       [disabled]="true" 
       inputId="integeronly" 
       [(ngModel)]="valueDevuelvo"
-      [class.input-large]="true" />
+      [class.input-large]="true" /> -->
+       <h1>Devuelvo______ {{twoDecimalsString(valueDevuelvo)}}€</h1>
   </div>

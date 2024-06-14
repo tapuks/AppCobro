@@ -15,10 +15,18 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export interface Producto {
   nombre: string;
   id: number;
-  precio: number;
+  precio: any;
   seleccionado: boolean;
   cantidad: number;
   imagen: string;
+  category:
+    | 'comida'
+    | 'refresco'
+    | 'cafe'
+    | 'licor'
+    | 'postre'
+    | 'extra'
+    | 'patatas';
 }
 
 @Component({
@@ -41,7 +49,7 @@ export class ProductoComponent {
   constructor(
     private router: Router,
     private productosService: ProductosService,
-    private confirmationService: ConfirmationService,
+    private confirmationService: ConfirmationService
   ) {}
   dialogVisible = false;
   cantidad = 0;
@@ -77,7 +85,6 @@ export class ProductoComponent {
       productos[index].cantidad = this.cantidad;
       productos[index].seleccionado = true;
       this.productosService.todosLosProductos.next(productos);
-
     }
 
     this.dialogVisible = false;
@@ -110,5 +117,9 @@ export class ProductoComponent {
       },
       reject: () => {},
     });
+  }
+
+  twoDecimals(num: number): string {
+    return num.toFixed(2);
   }
 }

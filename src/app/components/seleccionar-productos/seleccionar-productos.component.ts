@@ -8,14 +8,29 @@ import { ProductosService } from '../../productos.service';
   standalone: true,
   imports: [ProductoComponent, CommonModule],
   templateUrl: './seleccionar-productos.component.html',
-  styleUrl: './seleccionar-productos.component.scss'
+  styleUrl: './seleccionar-productos.component.scss',
 })
 export class SeleccionarProductosComponent implements OnInit {
-  productos!: Producto[]
+  productos!: Producto[];
 
-  constructor(private productosService: ProductosService){}
+  constructor(private productosService: ProductosService) {}
   ngOnInit(): void {
-    this.productos = this.productosService.todosLosProductos.getValue()
+    this.productosService.todosLosProductos.subscribe((prod) => {
+      this.productos = prod;
+      console.log(this.hayIdRepetido(this.productos));
+    });
   }
 
+  hayIdRepetido(productos: Producto[]): boolean {
+    const ids = new Set<number>();
+
+    for (const producto of productos) {
+      if (ids.has(producto.id)) {
+        return true;
+      }
+      ids.add(producto.id);
+    }
+
+    return false;
+  }
 }

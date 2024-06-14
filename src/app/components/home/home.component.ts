@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-aaa= './aaa.jpg'
   constructor(public router: Router){}
 
 }

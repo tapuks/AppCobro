@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Producto } from '../producto/producto.component';
 import { ProductosService } from '../../productos.service';
 import { CommonModule } from '@angular/common';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-ticket',
@@ -13,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class TicketComponent {
   productos!: Producto[];
   totalEuros!: number;
+  fechaHoy!: string;
 
   constructor(private productosService: ProductosService) {}
 
@@ -20,7 +23,17 @@ export class TicketComponent {
     this.productosService.todosLosProductos.subscribe((value) => {
       this.productos = value.filter((prod) => prod.seleccionado);
       this.calcularTotales();
+
+      this.fechaHoy = this.obtenerFechaActual();
     });
+  }
+
+  obtenerFechaActual(): string {
+    const hoy = new Date();
+    const dia = hoy.getDate().toString().padStart(2, '0');
+    const mes = (hoy.getMonth() + 1).toString().padStart(2, '0');
+    const anio = hoy.getFullYear();
+    return `${dia}/${mes}/${anio}`;
   }
 
   calcularTotales(): void {
@@ -31,6 +44,7 @@ export class TicketComponent {
   }
 
   printTicket() {
+    this.downloadPDF();
     const printContents = document.getElementById('ticket-content')?.innerHTML;
     if (printContents) {
       const printWindow = document.createElement('iframe');
@@ -38,7 +52,7 @@ export class TicketComponent {
       printWindow.style.position = 'absolute';
       printWindow.style.width = '0';
       printWindow.style.height = '0';
-      // printWindow.style.border = 'none';
+      // printWindow.style.border = 'none';5
 
       document.body.appendChild(printWindow);
 
@@ -122,6 +136,7 @@ export class TicketComponent {
     font-size: 11px;
    padding: 30px !important;
   }
+   
               </style>
             </head>
             <body>${printContents}</body>
@@ -145,5 +160,32 @@ export class TicketComponent {
 
   convertirAMayusculas(texto: string): string {
     return texto.toUpperCase();
+  }
+
+  getFormattedDate(): string {
+    const date = new Date();
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Los meses van de 0 a 11
+    const year = date.getUTCFullYear().toString();
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+    return `${day}_${month}_${year}_${hours}_${minutes}_${seconds}_${this.totalEuros}`;
+  }
+
+  public downloadPDF(): void {
+    const DATA: any = document.getElementById('ticket-content');
+    html2canvas(DATA).then((canvas) => {
+      const FILEURI = canvas.toDataURL('image/png');
+      const PDF = new jsPDF('p', 'mm', 'a4');
+      const position = 0;
+      const imgProps = PDF.getImageProperties(FILEURI);
+      const pdfWidth = PDF.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      PDF.addImage(FILEURI, 'PNG', 0, position, pdfWidth, pdfHeight);
+      const fileName = `ticket_${this.getFormattedDate()}.pdf`;
+      PDF.save(fileName);
+    });
   }
 }

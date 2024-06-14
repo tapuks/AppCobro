@@ -6,27 +6,34 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { TicketComponent } from '../ticket/ticket.component';
 import { CobrarComponent } from '../cobrar/cobrar.component';
+import { productos } from '../../productos';
 
 @Component({
   selector: 'app-productos-en-ticket',
   standalone: true,
-  imports: [CommonModule, ButtonModule, DialogModule, TicketComponent, CobrarComponent],
+  imports: [
+    CommonModule,
+    ButtonModule,
+    DialogModule,
+    TicketComponent,
+    CobrarComponent,
+  ],
   templateUrl: './productos-en-ticket.component.html',
   styleUrl: './productos-en-ticket.component.scss',
 })
 export class ProductosEnTicketComponent implements OnInit {
   productosEnTicket!: Producto[];
   dialogTicketVisible = false;
-  dialogCobrarVisible = false
+  dialogCobrarVisible = false;
+  dialogNuevoTicketVisible = false;
+  pulseCloseDialogCobrar = false;
 
   constructor(private productosService: ProductosService) {}
-
 
   ngOnInit(): void {
     let productosSeleccionadosPrevios: any[] = [];
 
     this.productosService.todosLosProductos.subscribe((value) => {
-
       const productosSeleccionados = value.filter(
         (producto) => producto.seleccionado
       );
@@ -50,7 +57,10 @@ export class ProductosEnTicketComponent implements OnInit {
     });
   }
 
-  sacarTicket(): void {
-    console.log(2)
+  confirmarNuevoTicket(): void {
+    this.productosService.todosLosProductos.next(
+      JSON.parse(JSON.stringify(productos))
+    );
+    this.dialogNuevoTicketVisible = false;
   }
 }
