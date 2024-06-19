@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Producto, ProductoComponent } from '../producto/producto.component';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../productos.service';
+import { CrearProductoComponent } from '../crear-producto/crear-producto.component';
 
 @Component({
   selector: 'app-seleccionar-productos',
   standalone: true,
-  imports: [ProductoComponent, CommonModule],
+  imports: [ProductoComponent, CommonModule, CrearProductoComponent],
   templateUrl: './seleccionar-productos.component.html',
   styleUrl: './seleccionar-productos.component.scss',
 })

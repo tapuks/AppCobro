@@ -17,13 +17,13 @@
       <td>{{ convertirAMayusculas(prod.nombre) }}</td>
       <td>{{ prod.cantidad }}</td>
       <td>{{ prod.precio }}</td>
-      <td>{{ prod.cantidad * prod.precio }}</td>
+      <td>{{ twoDecimals(prod.cantidad * prod.precio) }}</td>
     </tr>
     <tr class="product-row total">
       <td class="text-left" colspan="2">Total IVA incluido</td>
-      <td class="text-right" colspan="2">{{totalEuros}}€</td>
+      <td class="text-right" colspan="2">{{ totalEuros }}€</td>
     </tr>
-    </table>
-  <p class="gracias" >Gracias por su visita.</p>
+  </table>
+  <p class="gracias">Gracias por su visita.</p>
 </div>
 <button (click)="printTicket()">Imprimir Ticket</button>
