@@ -26,7 +26,8 @@ export interface Producto {
     | 'licor'
     | 'postre'
     | 'extra'
-    | 'patatas';
+    | 'patatas'
+    | 'helado';
 }
 
 @Component({

@@ -173,6 +173,14 @@ export class TicketComponent {
     return `${day}_${month}_${year}_${hours}_${minutes}_${seconds}_${this.totalEuros}`;
   }
 
+  getDate(): string {
+    const date = new Date();
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Los meses van de 0 a 11
+    const year = date.getUTCFullYear().toString();
+    return `${day}/${month}/${year}`;
+  }
+
   public downloadPDF(): void {
     const DATA: any = document.getElementById('ticket-content');
     html2canvas(DATA).then((canvas) => {
