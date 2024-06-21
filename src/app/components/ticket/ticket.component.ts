@@ -196,4 +196,8 @@ export class TicketComponent {
       PDF.save(fileName);
     });
   }
+
+  twoDecimals(num: number): string {
+    return num.toFixed(2);
+  }
 }

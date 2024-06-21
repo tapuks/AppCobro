@@ -73,6 +73,16 @@ export const productos: Producto[] = [
     category: 'refresco',
   },
   {
+    nombre: 'Cerveza jarra',
+    id: 11.1,
+    precio: 2.5,
+    seleccionado: false,
+    cantidad: 0,
+    imagen:
+      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5wkWab38Lty1fCGuUdwSSaVPkL0hzFRMMNATKYl7T446dMH_prqZ1T9PS75mpihS9T-dGaRXJM2ZjQvOYoNXBUQ_ODqz1zk1_a-26DRML8uB-6E9az3JxLH907XIJ5xCRbnZQfcs&usqp=CAc',
+    category: 'refresco',
+  },
+  {
     nombre: 'Vichy',
     id: 12,
     precio: 2,
@@ -481,6 +491,16 @@ export const productos: Producto[] = [
     cantidad: 0,
     imagen:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhkl-bS2HRnRwd3YxuY6NozWClavbkB-zswA&s',
+    category: 'comida',
+  },
+  {
+    nombre: 'Caracoles',
+    id: 92,
+    precio: 8,
+    seleccionado: false,
+    cantidad: 0,
+    imagen:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHa_oJaPEAM22dxY4xGrzGUY8OL4R6vg1aEg&s',
     category: 'comida',
   },
 
