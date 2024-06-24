@@ -7,6 +7,7 @@ import { DialogModule } from 'primeng/dialog';
 import { TicketComponent } from '../ticket/ticket.component';
 import { CobrarComponent } from '../cobrar/cobrar.component';
 import { productos } from '../../productos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos-en-ticket',
@@ -28,7 +29,10 @@ export class ProductosEnTicketComponent implements OnInit {
   dialogNuevoTicketVisible = false;
   pulseCloseDialogCobrar = false;
 
-  constructor(private productosService: ProductosService) {}
+  constructor(
+    private productosService: ProductosService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     let productosSeleccionadosPrevios: any[] = [];
