@@ -19,6 +19,7 @@ export interface Producto {
   seleccionado: boolean;
   cantidad: number;
   imagen: string;
+  descripcion?: string;
   category:
     | 'comida'
     | 'refresco'

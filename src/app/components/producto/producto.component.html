@@ -3,10 +3,11 @@
     'postre': producto.category==='postre', 'patatas': producto.category==='patatas', 'extra': producto.category==='extra',  'cafe': producto.category==='cafe' }"
     [style]="{ width: '200px', height:'200px' }" (click)="dialogVisible=true">
     <ng-template pTemplate="header">
-        <img alt="Card" src="{{producto.imagen}}" />
+        <img *ngIf="!producto.descripcion" alt="Card" src="{{producto.imagen}}" />
         <p class="text-center font-bold text-2xl m-0 p-0">{{producto.nombre}}</p>
 
         <p class="text-center font-bold text-2xl m-0 p-0">{{twoDecimals(producto.precio)}}€</p>
+        <p *ngIf="producto.descripcion" class="text-center font-bold text-xl m-0 p-0">{{producto.descripcion}}</p>
 
     </ng-template>
 </p-card>
