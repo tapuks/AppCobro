@@ -1,0 +1,76 @@
+<div id="factura" class="factura" style="margin: 100px">
+  <h1>Factura</h1>
+  <div class="block_number flex flex-column align-items-end">
+    <p class="m-0">Factura nº: 0002</p>
+    <p class="m-0">Fecha 22/06/2024</p>
+  </div>
+
+  <div class="flex justify-content-between mt-5">
+    <div class="container_datos">
+      <p class="font-bold">DE</p>
+      <P>Estercilia Orozco Acosta</P>
+      <P>NIF: Y8104772T a</P>
+      <P>C/ de Acceso S/N </P>
+      <P>22549 Vencillon (Huesca) </P>
+      <P>Telf: 642719700 </P>
+      <P>Email: cilia_92&#64;hotmail.com</P>
+    </div>
+    <div class="container_datos">
+      <!-- <p class="font-bold">FACTURAR A</p>
+      <P>AGRO-PELEGRÍ, S.C.</P>
+      <P>NIF:J22259659 </P>
+      <P>C/ Norte nº8 </P>
+      <P>22549 Vencillon (Huesca) </P> -->
+      <p class="font-bold">FACTURAR A</p>
+      <P>Enrique Pelegrí Garcia</P>
+      <P>NIF: 43719808M</P>
+      <P>C/ Norte nº8 </P>
+      <P>22549 Vencillon (Huesca) </P>
+    </div>
+  </div>
+
+  <div class="tabla">
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of menuDiario">
+          <td>{{ item.fecha }}</td>
+          <td>{{ item.descripcion }}</td>
+          <td>{{ item.precio }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">SUBTOTAL</td>
+          <td class="font-bold">{{ subtotal() }}€</td>
+        </tr>
+        <!-- Nueva fila para el IVA -->
+        <tr>
+          <td colspan="2" style="text-align: right; border: none">IVA 10%</td>
+          <td class="font-bold">{{ iva() }}€</td>
+        </tr>
+        <!-- Nueva fila para el total iva incluido -->
+        <tr>
+          <td colspan="2" style="text-align: right; border: none">
+            TOTAL IVA INCLUIDO
+          </td>
+          <td class="font-bold">{{ totalConIVA() }}€</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="container_pago">
+    <p class="font-bold">Informacíon de pago</p>
+    <p>Nombre del banco: Santander</p>
+    <p>Número de cuenta:</p>
+    <p>ES80 0049 2346 1228 1440 0167</p>
+  </div>
+</div>
+
+<p-button label="descargar" (click)="downloadPDF()"></p-button>
