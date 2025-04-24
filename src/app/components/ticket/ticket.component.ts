@@ -15,7 +15,17 @@ import html2canvas from 'html2canvas';
 export class TicketComponent {
   productos!: Producto[];
   totalEuros!: number;
-  fechaHoy!: string;
+  fechaHoy!: string
+
+  ticketInfo = {
+    name: "Mi negocio",
+    nif: "FALSO1234X",
+    direccion: "CALLE 999",
+    codigoPostal: "22222",
+    localidad: "CIUDAD FICTICIA",
+    telefono: "600000000",
+    fecha: this.getDate() 
+  };
 
   constructor(private productosService: ProductosService) {}
 
@@ -200,4 +210,6 @@ export class TicketComponent {
   twoDecimals(num: number): string {
     return num.toFixed(2);
   }
+
+
 }

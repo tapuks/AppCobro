@@ -1,15 +1,24 @@
 .container_productos_ticket {
-  border-left: 1px solid black;
-  height: 80vh;
+  // border-left: 1px solid black;
+  height: 100vh; // Asegura que el contenedor ocupe toda la altura de la pantalla
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem; // Opcional: añade un poco de espacio interno
+  box-sizing: border-box; // Asegura que el padding no exceda el 100vh
 }
-
-
-
 .container_button {
-  align-self: center; // Asegura que el botón esté al final
-  margin-top: auto;
+  display: flex;
+  flex-direction: column; // Asegura que los botones estén en columna
+  gap: 0.5rem; // Reduce el espacio entre los botones
+  align-items: stretch; // Asegura que los botones se estiren al ancho del contenedor
+  width: 100%; // Asegura que el contenedor de botones ocupe todo el ancho
 
-
+  ::ng-deep .p-button {
+    width: 100% !important; // Asegura que los botones ocupen todo el ancho
+    text-align: center; // Centra el texto dentro del botón
+    display: flex; // Asegura que el botón use flexbox
+    justify-content: center; // Centra el contenido horizontalmente
+    align-items: center; // Centra el contenido verticalmente
+  }
 }

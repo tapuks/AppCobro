@@ -79,7 +79,7 @@ export const productos: Producto[] = [
     seleccionado: false,
     cantidad: 0,
     imagen:
-      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5wkWab38Lty1fCGuUdwSSaVPkL0hzFRMMNATKYl7T446dMH_prqZ1T9PS75mpihS9T-dGaRXJM2ZjQvOYoNXBUQ_ODqz1zk1_a-26DRML8uB-6E9az3JxLH907XIJ5xCRbnZQfcs&usqp=CAc',
+      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQYlkraKKfW86vk_nF8HvoJbFxT00OGSEs7sbioRcz7IKDxoytTPrg2n_2ezqEoDLC49H9BfzcmhqlaWDdgSxKCr8ZQ74-Gd8sqB1-1ALfGCOO9GPmZv2TJE3PBf7K5WKfpue5eNGHf&usqp=CAc',
     category: 'refresco',
   },
   {

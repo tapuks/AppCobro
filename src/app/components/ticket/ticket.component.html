@@ -1,11 +1,11 @@
 <div id="ticket-content">
-  <h4 class="text-center title text-sm">Piscinas de Vencillón</h4>
+  <h4 class="text-center title text-sm">{{ticketInfo.name}}</h4>
   <div class="text-center container_nif">
-    <p>NIF: Y8104772T</p>
-    <p>CARRETERA DE ACCESO S/N</p>
-    <p>22549 VENCILLÓN</p>
-    <p>TELF. 642719700</p>
-    <p>Fecha: {{getDate()}}</p>
+    <p>NIF: {{ ticketInfo.nif }}</p>
+    <p>{{ ticketInfo.direccion }}</p>
+    <p>{{ ticketInfo.codigoPostal }} {{ ticketInfo.localidad }}</p>
+    <p>TELF. {{ ticketInfo.telefono }}</p>
+    <p>Fecha: {{ ticketInfo.fecha }}</p>
   </div>
   <table class="ticket-products mt-5">
     <tr class="product-row header bold">
@@ -17,7 +17,7 @@
     <tr class="product-row" *ngFor="let prod of productos">
       <td>{{ convertirAMayusculas(prod.nombre) }}</td>
       <td>{{ prod.cantidad }}</td>
-      <td>{{ prod.precio }}</td>
+      <td>{{ twoDecimals(prod.precio )}}</td>
       <td>{{ twoDecimals(prod.cantidad * prod.precio) }}</td>
     </tr>
     <tr class="product-row total">

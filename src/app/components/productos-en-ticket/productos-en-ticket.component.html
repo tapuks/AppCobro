@@ -6,28 +6,17 @@
   </ul>
   <div class="container_button">
     <p-button
-      [style]="{ 'padding-right': '120px', 'padding-left': '120px' }"
       (click)="dialogCobrarVisible = true"
       >Cobrar</p-button
     >
-    <br /><br /><br />
     <p-button
-      [style]="{ 'padding-right': '100px', 'padding-left': '100px' }"
       (click)="dialogTicketVisible = true"
       >Sacar ticket</p-button
     >
-    <br /><br /><br />
     <p-button
       severity="danger"
-      [style]="{ 'padding-right': '120px', 'padding-left': '120px' }"
       (click)="dialogNuevoTicketVisible = true"
       >Nuevo ticket</p-button
-    >
-    <br /><br /><br />
-    <p-button
-      [style]="{ 'padding-right': '100px', 'padding-left': '100px' }"
-      (click)="router.navigate(['/factura'])"
-      >Crear Factura</p-button
     >
   </div>
 
